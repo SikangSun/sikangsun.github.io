@@ -1,0 +1,49 @@
+
+<script>
+   const src = "Sikang_Sun_Resume.pdf"
+</script>
+
+<style>
+   .zeDiv {
+      margin: 10px 0 0 30px;
+      width: 80%;
+      height: auto;
+      border-radius: 7px;
+      padding: 0px 0px 10px 10px;
+      border: 1px solid black;
+   }
+   hr {
+      margin-right: 10px;
+   }
+   .update {
+      position: relative;
+      right: 0px;
+   }
+   a {
+        text-decoration: none;
+        color: black;
+    }
+   .head {
+      font-size: 30px;
+   }
+</style>
+<a href={src} download="Sikang Sun Resume">
+   <div class="zeDiv">
+      <div class="head">Click to Download Resume</div>
+      <hr/>
+      <div>
+         Undergraduate student at Purdue University
+
+      </div>
+      <div>
+         Majoring Computer Science and Data Science
+      </div>
+      <div>
+         Currently looking for SWE internship Summer 2022
+      </div>
+      <div class="update">
+         Last Updated: Nov. 20, 2022
+      </div>
+   </div>
+   
+</a>
