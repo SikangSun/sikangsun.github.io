@@ -1,5 +1,5 @@
 
-let url = "http://localhost:5173/"
+
 export async function fread (filename) {
   let temp = ""
   await fetch(filename)
@@ -24,7 +24,7 @@ export async function readDir () {
 
 export async function readByID (id) {
   let temp = {}
-  await fetch("http://localhost:5173/metadata.json")
+  await fetch("/metadata.json")
   .then(response => response.json())
   .then(text => {
       temp = text;
@@ -36,8 +36,8 @@ export async function readByID (id) {
   else {
     html = html.html;
   }
-  let path = `htmls/${html}`
+  let path = `/htmls/${html}`
   console.log(path)
-  return await fread(`${url}${path}`);
+  return await fread(`${path}`);
 }
 
