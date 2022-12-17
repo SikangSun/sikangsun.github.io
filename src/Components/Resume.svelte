@@ -26,10 +26,13 @@
    .head {
       font-size: 30px;
    }
+   .download {
+      margin: 10px 0 0 30px
+   }
 </style>
-<a href={src} download="Sikang Sun Resume">
+<a href={src} target="_blank" rel="noreferrer noopener">
    <div class="zeDiv">
-      <div class="head">Click to Download Resume</div>
+      <div class="head">Click to View Resume</div>
       <hr/>
       <div>
          Undergraduate student at Purdue University
@@ -44,6 +47,9 @@
       <div class="update">
          Last Updated: Nov. 20, 2022
       </div>
+
    </div>
-   
+   <a href={src} download="Sikang_Sun_Resume">
+   <button  class="download">Download</button>
+   </a>
 </a>

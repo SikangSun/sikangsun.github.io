@@ -17,6 +17,7 @@
         padding-top: 5px;
         margin: 0px;
         position: absolute;
+        bottom: 0;
         left: 0;
         vertical-align: middle;
     }

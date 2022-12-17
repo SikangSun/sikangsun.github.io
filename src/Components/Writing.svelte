@@ -7,8 +7,6 @@
     import { navigate } from "svelte-routing";
     import BackButton from "./buttons/BackButton.svelte";
     export let id;
-
-    let htmlFile;
     let html;
     onMount(async () => {
         html = await readByID(id);
@@ -24,12 +22,14 @@
 </script>
 
 <style>
+    .backButton {
+        margin: 10px 0 10px 0;
+    }
      .text {
     top: 50px;
-    padding: 10px 30px 0px 30px;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 0;
+    padding: 10px 30px 30px 30px;
+    margin: 10px 10% 70px 10%;
+
     min-height: 700px;
     min-width: 400px;
     height: auto;
@@ -39,7 +39,7 @@
 
 <Router>
     <div class="text" in:fly={{y:1000, duration: 2000,delay: 500}} out:fly>
-        <div>
+        <div class="backButton">
            <BackButton/>
         </div>
         {@html html}

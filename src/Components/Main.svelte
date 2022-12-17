@@ -9,7 +9,7 @@
     import Footer from "./Footer.svelte";
 
     let url = "";
-  
+    let secret = false;
     const handleClick = (e) => {
       e.preventDefault();
       console.log("asdf");
@@ -19,7 +19,7 @@
 <style>
   #name {
     font-size: 70px;
-    pointer-events: none;
+    user-select: none;
   }
   .playground {
     position: relative;
@@ -34,7 +34,7 @@
     min-height: 700px;
     min-width: 400px;
     height: auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
   }
   .playground > :global(*)  {
     grid-row: 1;
@@ -43,12 +43,18 @@
   section {
     overflow-x: hidden;
   }
+  span {
+    color: transparent;
+  }
+
 </style>
 
 <div>
   <div>
-    <div id="name"  transition:slide={{duration: 400}}>
-      SSK.
+    <div  id="name"  transition:slide={{duration: 400}}>
+      <div>
+        SSK. <span on:click={() => secret = true} on:keyup>?</span>
+      </div> 
     </div>
 
     <Navbar/>
@@ -57,13 +63,13 @@
     <div class="playground">
       <Router url="/">
         <Route path="/" > 
-          <div in:fly="{{delay: 700, x: 500, duration: 1000}}" out:fly="{{x: -500, duration: 700}}">
+          <div >
           <Home/>
           </div>
         </Route>
         <Route path="writings">
           <div in:fly="{{delay: 700, x: 500, duration: 1000}}" out:fly="{{x: -500, duration: 700}}">
-            <Writings/>
+            <Writings {secret}/>
           </div>
         </Route>
         <Route path="resume" >

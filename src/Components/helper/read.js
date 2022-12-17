@@ -12,6 +12,7 @@ export async function fread (filename) {
 }
 
 export async function readDir () {
+  //read metadata.json
   let temp = {}
   await fetch("metadata.json")
   .then(response => response.json())
@@ -23,6 +24,10 @@ export async function readDir () {
 }
 
 export async function readByID (id) {
+  //read specific html given id
+  if (id == 0) {
+    return await fread( `/htmls/LR.html`);
+  }
   let temp = {}
   await fetch("/metadata.json")
   .then(response => response.json())

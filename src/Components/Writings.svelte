@@ -1,11 +1,13 @@
 <script>
+    import { fly } from "svelte/transition";
     import { navigate} from "svelte-routing"
     import { onMount } from 'svelte';
-    import { fread, readDir } from "./helper/read.js";
+    import { readDir } from "./helper/read.js";
+    export let secret = false;
     let files= [];
     let value = 0;
     let html = "";
-
+    const lr = "LR.html";
  
     onMount( async () => {
         files = await readDir();
@@ -15,6 +17,7 @@
     const goto = (e) => {
         e.preventDefault();
         value = e.currentTarget.value;
+        console.log(value)
         navigate(`/writings/${value}`, { replace: true, state: {id: value} }, );
     }
 </script>
@@ -50,7 +53,7 @@
 <div>
     <ul>
         {#each files as file (file.id)}
-            <li class="writing" value={file.id} on:keyup={goto} on:click={goto}>
+            <li class="writing" value={file.id} on:keyup on:click={goto}>
                 <div class="smallbox">
                     <span>
                         {file.name} 
@@ -67,4 +70,18 @@
             </li>
         {/each}
     </ul>
+    {#if secret == true}
+    <ul>
+        <li class="writing" value="a"
+        in:fly="{{ x: 500, duration: 1000}}" on:keyup  on:click={goto}>
+            <div class="smallbox">
+                <span>
+                    Lycoris Recoil Fanfic
+                </span>
+
+            </div>
+        </li>
+
+    </ul>
+    {/if}
 </div>
