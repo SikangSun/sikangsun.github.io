@@ -42,10 +42,10 @@
          Majoring Computer Science and Data Science
       </div>
       <div>
-         Currently looking for SWE internship Summer 2022
+         Currently looking for SWE internship Summer 2023
       </div>
       <div class="update">
-         Last Updated: Nov. 20, 2022
+         Last Updated: Dec. 25, 2022
       </div>
 
    </div>
