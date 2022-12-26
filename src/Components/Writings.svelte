@@ -27,7 +27,7 @@
         text-align: left;
         height: 50px;
         border-style: solid;
-        border-width: thick;
+        border-width: thin;
         min-width: 300px;
         margin: 10px;
         background-color: white;
@@ -39,7 +39,7 @@
         justify-content: space-between;
     }
     .writing:hover{
-        background-color: grey; 
+        background-color: #C0C0C0; 
         cursor: pointer;
     }
     ul {
