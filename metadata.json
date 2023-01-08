@@ -1,10 +1,19 @@
 [
     {   
         "id": 1,
-        "name": "Validating the Education System (Final Draft)",
+        "name": "Validating the Education System (Under Revision)",
         "html": "val.html",
         "date": "12-25-2022",
+        "tags": "Education, Computer Science, Analysis",
         "wordCount": 4613
+    },
+    {
+        "id": 2,
+        "name": "Paralleled Silence (Bocchi the Rock Excerpt)",
+        "html": "ps.html",
+        "date": "1-6-2023",
+        "tags": "Fiction, Music",
+        "wordCount": 1003
     }
 ]
 
