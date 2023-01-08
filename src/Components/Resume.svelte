@@ -1,5 +1,6 @@
 
 <script>
+   import { fly, fade , slide} from "svelte/transition";
    const src = "Sikang_Sun_Resume4.pdf"
 </script>
 
@@ -30,8 +31,10 @@
       margin: 10px 0 0 30px
    }
 </style>
+
+<div in:fade="{{delay:1000, duration:1000}}" out:fade>
 <a href={src} target="_blank" rel="noreferrer noopener">
-   <div class="zeDiv">
+   <div class="zeDiv"  >
       <div class="head">Click to View Resume</div>
       <hr/>
       <div>
@@ -53,3 +56,4 @@
    <button  class="download">Download</button>
    </a>
 </a>
+</div>

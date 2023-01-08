@@ -1,19 +1,24 @@
 <script>
-    import { fly, fade , slide} from "svelte/transition";
-    import { Router, Route, Link } from "svelte-routing";
+    import { slide } from "svelte/transition";
+    import Router from "svelte-spa-router";
     import Navbar from "./Navbar.svelte";
     import Home from "./Home.svelte";
     import Writings from "./Writings.svelte";
+    import { secret } from './helper/stores.js';
     import Resume from "./Resume.svelte";
     import Empty from "./Empty.svelte";
-    import Footer from "./Footer.svelte";
+    import Writing from "./Writing.svelte";
 
     let url = "";
-    let secret = false;
-    const handleClick = (e) => {
-      e.preventDefault();
-      console.log("asdf");
-    }
+
+  const prefix = ''
+  const routes = {
+    '/': Home,
+    '/writings':  Writings,
+    '/writing/:id': Writing,
+    '/resume': Resume,
+    '*': Empty
+  }
 </script>
   
 <style>
@@ -53,38 +58,38 @@
   <div>
     <div  id="name"  transition:slide={{duration: 400}}>
       <div>
-        SSK. <span on:click={() => secret = true} on:keyup>?</span>
+        SSK. <span on:click={() => 	secret.set(true)} on:keyup>?</span>
       </div> 
     </div>
 
     <Navbar/>
   </div>
-  <section>
-    <div class="playground">
-      <Router url="/">
-        <Route path="/" > 
-          <div >
-          <Home/>
-          </div>
-        </Route>
-        <Route path="writings">
-          <div in:fly="{{delay: 700, x: 500, duration: 1000}}" out:fly="{{x: -500, duration: 700}}">
-            <Writings {secret}/>
-          </div>
-        </Route>
-        <Route path="resume" >
-          <div in:fade="{{delay:1000, duration:1000}}" out:fade>
-            <Resume/>
-          </div>
-        </Route>
-        <Route path="*">
-          <div out:fade>
-            <Empty/>
-          </div>
-        </Route>
-      </Router>
+  <div class="playground">
+  <Router {routes} {prefix}/>
+  </div>
+    <!-- <Router basepath="/">
+
+      <div class="playground">
+      <Route path="/" component={Home}> 
+      </Route>
+      <Route path="writings">
+        <div>
+          <Writings {secret}/>
+        </div>
+      </Route>
+      <Route path="resume" >
+        <div in:fade="{{delay:1000, duration:1000}}" out:fade>
+          <Resume/>
+        </div>
+      </Route>
+      <Route path="*">
+        <div out:fade>
+          <Empty/>
+        </div>
+      </Route>
     </div>
-  </section>
+    </Router> -->
+
 
 
 </div>

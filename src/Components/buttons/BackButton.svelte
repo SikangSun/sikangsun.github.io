@@ -1,6 +1,6 @@
 <script>
-    import { navigate } from "svelte-routing";
+    import { pop } from "svelte-spa-router";
   
   </script>
   
-  <button title="Go back" on:click={() => navigate("/", {replace: true})}>&lt;-</button>
+  <button title="Go back" on:click={() => pop()}>&lt;-</button>

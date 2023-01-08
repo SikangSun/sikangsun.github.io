@@ -1,9 +1,14 @@
 <script>
-  import { Router, Route, Link } from "svelte-routing";
+  import Router from 'svelte-spa-router'
   import Main from "./Components/Main.svelte";
   import Footer from "./Components/Footer.svelte";
-  import Writing from "./Components/Writing.svelte";
+
   export let url = "";
+
+  const routes = {
+    '/*': Main
+
+  }
 </script>
 <style>
   body {
@@ -33,14 +38,17 @@
   <body>
   <span class="playground">
 
-  <Router url="{url}">
-      <Route path="" component={Main}>
+  <!-- <Router basepath="">
+    <div>
+      <Route path="" >
+        <Main/>
       </Route>
       <Route path="/writings/:id" let:params>
         <Writing id="{params.id}"/>
       </Route>
-  </Router>
-
+    </div>
+  </Router> -->
+  <Router {routes}/>
   </span>
   <Footer/>
   </body>

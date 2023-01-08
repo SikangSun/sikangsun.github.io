@@ -1,8 +1,10 @@
 <script>
     import { fade, fly } from "svelte/transition";
-    function customEasing2(t) {
-		return Math.abs(Math.cos(t * Math.PI));
-	}
+    import { onMount } from "svelte";
+    export let show = true;
+    onMount(() => {
+        console.log("mounted");
+    });
 </script>
 
 

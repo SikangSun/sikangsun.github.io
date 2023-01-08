@@ -1,18 +1,17 @@
 <script>
 
-    import { fly, fade } from "svelte/transition";
+    import { fly } from "svelte/transition";
     import { onMount } from "svelte";
-    import { readByID, fread} from "./helper/read";
-    import { Router } from "svelte-navigator";
-    import { navigate } from "svelte-routing";
+    import { readByID} from "./helper/read";
+    import { pop } from "svelte-spa-router";
     import BackButton from "./buttons/BackButton.svelte";
-    export let id;
-    let html;
+    export let params = {};
+    let html = "";
     onMount(async () => {
-        html = await readByID(id);
+        html = await readByID(params.id);
         if ( html === "undefined") {
             alert('Writing Does exist 😲');
-            navigate("/", {replace: true});
+            pop();
         }
 
         //console.log(html);
@@ -30,7 +29,6 @@
     top: 50px;
     padding: 10px 30px 30px 30px;
     margin: 10px 0 70px 0%;
-
     min-height: 700px;
     min-width: 400px;
     max-width: 600px;
@@ -43,13 +41,13 @@
   }
 </style>
 
-<Router>
-    <div class="container">
-        <div class="text" in:fly={{y:1000, duration: 2000,delay: 500}} out:fly>
-            <div class="backButton">
-            <BackButton/>
-            </div>
-            {@html html}
+
+<div class="container">
+    <div class="text" in:fly={{y:1000, duration: 2000}} out:fly={{y:1000, duration: 500}}>
+        <div class="backButton">
+        <BackButton/>
         </div>
+        {@html html}
     </div>
-</Router>
+</div>
+

@@ -1,19 +1,19 @@
 <script>
-    import { navigate } from "svelte-routing";
+    import { push, replace } from "svelte-spa-router";
     import { slide, fly } from "svelte/transition"
     const goHome = (e) => {
         e.preventDefault();
-        navigate("/", { replace: true });
+        push("/");
     }
 
     const goWritings = (e) => {
         e.preventDefault();
-        navigate("/writings", { replace: true });
+        push("/writings/");
     }
 
     const goResume = (e) => {
         e.preventDefault();
-        navigate("/resume", { replace: true });
+        push("/resume");
     }
 </script>
 
